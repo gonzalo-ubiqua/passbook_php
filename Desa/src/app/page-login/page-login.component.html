@@ -1,0 +1,46 @@
+<section class="page">
+  <header>
+    <!-- <h1>Cortijo fontanilla</h1> -->
+  </header>
+
+  <div class="body">
+    <h2>Login</h2>
+
+    <article class="login-frame">
+      <form class="" [formGroup]="loginFormControl">
+        <ul class="std">
+
+          <li>
+            <mat-form-field class="example-full-width">
+              <mat-label><span i18n>Usuario</span></mat-label>
+              <input matInput placeholder="Usuario" formControlName="user" required>
+            </mat-form-field>
+          </li>
+          <li>
+
+            <mat-form-field class="example-full-width">
+              <mat-label><span i18n>Clave</span></mat-label>
+              <input matInput placeholder="Clave" formControlName="pwd" required>
+            </mat-form-field>
+
+          </li>
+          <li class="nav">
+            <button [btnLoading]="validating" type="button" mat-raised-button (click)="sendLoginData()" [disabled]="loginFormControl.status !== 'VALID'">Login</button>
+          </li>
+        </ul>
+
+      </form>
+
+    </article>
+
+    <div *ngIf="message" class="message" (click)="message=''">
+      {{message}}
+    </div>
+
+  </div>
+
+  <footer>
+
+  </footer>
+
+</section>

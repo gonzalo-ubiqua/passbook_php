@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+@FONT-FACE {
+	font-family: Roboto-r;
+    src: url("./scss/font/Roboto-Regular.ttf");
+}
+@FONT-FACE {
+	font-family: Roboto-b;
+    src: url("./scss/font/Roboto-Bold.ttf");
+}
+@FONT-FACE {
+	font-family: Roboto-m;
+    src: url("./scss/font/Roboto-Medium.ttf");
+}
+@FONT-FACE {
+	font-family: Roboto-l;
+	src: url("./scss/font/Roboto-Light.ttf");
+}
+
+body {
+	margin: 0px;
+}
+
+html, body, h1, h2, h4, h4, h5, h6, h7, li, a, p, span, label, input, select, textarea, th, td {
+	font-family: Roboto-r, sans-serif;
+	// font-weight: normal !important;
+}
+h1, h1 > span {font-size: 23px;}
+h2, h2 > span {font-size: 21px;}
+h3, h3 > span {font-size: 19px;}
+h4, h4 > span {font-size: 17px;}
+h5, h5 > span {font-size: 15px;}
+body li, a, p, span, input, select, textarea {
+	font-size: 13px;
+}
+
+a,
+a:hover,
+a:ACTIVE,
+a:VISITED {
+	color: #000000;
+	text-decoration: none !important;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+}

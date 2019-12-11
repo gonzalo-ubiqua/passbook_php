@@ -1,0 +1,87 @@
+<section class="ps-upload-image-section" (click)="selectFile.click()">
+  <div class="drop-area" HTML5dropable (drop)="onDrop($event);">
+    <input #selectFile type="file" accept="text/csv" style="display: none;" (change)="onFileSelected($event)"/>
+    <p>Arrastre el CSV que desea utiliza aquí o pulse para seleccionarlo</p>
+  </div>
+  <div class="progress">
+    <!-- <div id="file-bar-progress" class="bar" [style.width]="file_list[0].pct_procesed + '%'"></div> -->
+  </div>
+</section>
+
+<section class="error-window" *ngIf="window_ind" [ngSwitch]="window_ind" (click)="$event.stopPropagation()">
+  <div *ngSwitchCase="0"></div>
+
+  <div class="window waiting" *ngSwitchCase='1'>
+    <header>
+      <h2 i18n>Uploading file</h2>
+    </header>
+    <div class="body">
+      <ul>
+        <li *ngFor="let item_file of file_list">
+          <span i18n>Reading file {{item_file.file.name}}: </span> <span i18n>{{item_file.pct_procesed}} %</span>
+        </li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="forever-rotation" style="color: rgba(0,0,0,0.66); fill: currentColor;">
+        <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/>
+      </svg>
+    </div>
+    <footer>
+    </footer>
+  </div>
+
+  <div class="window waiting" *ngSwitchCase='2'>
+    <header>
+      <h2 i18n>Uploading file</h2>
+    </header>
+    <div class="body">
+      <ul>
+        <li *ngFor="let item_file of uploading_files">
+          <span i18n>Procesing file {{item_file.file_name}}: </span>
+        </li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="forever-rotation" style="color: rgba(0,0,0,0.66); fill: currentColor;">
+        <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/>
+      </svg>
+    </div>
+    <footer>
+    </footer>
+  </div>
+
+  <div class="window" *ngSwitchCase='3'>
+    <header>
+      <h2 i18n>Uploading file</h2>
+    </header>
+    <div class="body">
+      <h4 i18n>File {{upload_log.file_name}} successfully procesed</h4>
+      <div class="stadistics">
+         <span i18n>Total deliveries:</span> {{upload_log.stadistics.total| number}}<br />
+         <span i18n>Total inserted:</span> {{upload_log.stadistics.inserted| number}}<br />
+         <span i18n>errors:</span> {{upload_log.stadistics.errors| number}}<br />
+         <ul>
+           <li *ngFor="let l of upload_log.stadistics.log">{{l}}</li>
+         </ul>
+      </div>
+    </div>
+    <footer>
+      <nav>
+        <button mat-raised-button class="btn" i18n (click)="window_ind=0">Close</button>
+      </nav>
+    </footer>
+  </div>
+
+  <div class="window" *ngSwitchCase='99'>
+    <header>
+      <h2>Uploading file</h2>
+    </header>
+    <div class="body">
+      <p i18n>Error uploading file:</p>
+      <p [innerHTML]="msg_error"></p>
+    </div>
+    <footer>
+      <nav>
+        <button mat-raised-button class="btn" i18n (click)="window_ind=0">Close</button>
+      </nav>
+    </footer>
+  </div>
+
+</section>

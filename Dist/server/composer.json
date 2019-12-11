@@ -1,0 +1,20 @@
+{
+    "name": "ubiqua/pbcortijo",
+    "description": "Envio de passbooks de Cortijo Fontanilla",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.1",
+        "league/oauth2-google": "^3.0"
+    },
+    "authors": [
+        {
+            "name": "Gonzalo",
+            "email": "gonzalo@ubiqua.es"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "ubiqua\\pbCortijoFontanilla\\": ["."]
+        }
+    }
+}

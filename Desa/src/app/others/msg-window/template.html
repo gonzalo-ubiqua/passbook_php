@@ -1,0 +1,32 @@
+<section class="error-window" *ngIf="num_error" [ngSwitch]="num_error">
+  <div *ngSwitchCase="0"></div>
+
+  <div class="window waiting" *ngSwitchCase='1'>
+    <header>
+      <h2 i18n>zitroapi connection</h2>
+    </header>
+    <div class="body">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="forever-rotation" style="color: rgba(0,0,0,0.66); fill: currentColor;">
+        <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/>
+      </svg>
+    </div>
+    <footer>
+    </footer>
+  </div>
+
+  <div class="window" *ngSwitchCase='2'>
+    <header>
+      <h2>ZitroApi conexión error</h2>
+    </header>
+    <div class="body">
+      <p i18n>Error comunicando con ZitrAPI:</p>
+      <p [innerHTML]="msg_error"></p>
+    </div>
+    <footer>
+      <nav>
+        <button type="button" class="btn btn-primary" i18n (click)="num_error=0">Close</button>
+      </nav>
+    </footer>
+  </div>
+
+</section>

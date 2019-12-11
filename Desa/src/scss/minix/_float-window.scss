@@ -1,0 +1,16 @@
+@mixin float-window($padding) {
+  $fw-width: calc(100% - 26px);
+
+  box-sizing: border-box;
+  color: #fff;
+  -moz-box-shadow: 10px 10px 26px #000000;
+  -webkit-box-shadow: 10px 10px 26px #000000;
+  box-shadow: 10px 10px 26px #000000;
+  background-color: rgba(32, 108, 32, 1);
+  left: calc((100% - #{$fw-width}) / 4 );
+  padding: $padding;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: $fw-width;
+}

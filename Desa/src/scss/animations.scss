@@ -1,0 +1,121 @@
+
+
+// Rotations
+//     to rigt
+.forever-rotation {
+  animation: cssAnimation-rotation 1s infinite linear;
+  -webkit-animation: cssAnimation-rotation 1s infinite linear;
+  -moz-animation: cssAnimation-rotation 1s infinite linear;
+  -o-animation: cssAnimation-rotation 1s infinite linear;
+}
+//     to left
+.forever-rotation-inv {
+  animation: cssAnimation-rotation-inv 1s infinite linear;
+  -webkit-animation: cssAnimation-rotation-inv 1s infinite linear;
+  -moz-animation: cssAnimation-rotation-inv 1s infinite linear;
+  -o-animation: cssAnimation-rotation-inv 1s infinite linear;
+}
+.ps-ain {
+  animation: in-up .5s ease-out;
+  -webkit-animation: in-up .5s ease-out;
+  -moz-animation: in-up .5s ease-out;
+  -o-animation: in-up .5s ease-out;
+}
+.ps-aout {
+  animation: out-up .5s ease-out;
+  -webkit-animation: out-up .5s ease-out;
+  -moz-animation: out-up .5s ease-out;
+  -o-animation: out-up .5s ease-out;
+}
+
+  // ---------------------------------------------------------------------------
+  @keyframes cssAnimation-rotation {
+      from { transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+      to { transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+  }
+  @-o-keyframes cssAnimation-rotation {
+      from { -o-transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+      to { -o-transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+  }
+
+  @-webkit-keyframes cssAnimation-rotation {
+      from { -webkit-transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+      to { -webkit-transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+      }
+  @-moz-keyframes cssAnimation-rotation {
+      from { -moz-transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+      to { -moz-transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+      }
+  @-o-keyframes cssAnimation-rotation {
+      from { -o-transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+      to { -o-transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+  }
+
+  // ---------------------------------------------------------------------------
+  @keyframes cssAnimation-rotation-inv {
+    from { transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+      to { transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+  }
+  @-o-keyframes cssAnimation-rotation-inv {
+      from { -o-transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+      to { -o-transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+  }
+
+  @-webkit-keyframes cssAnimation-rotation-inv {
+      from { -webkit-transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+      to { -webkit-transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+      }
+  @-moz-keyframes cssAnimation-rotation-inv {
+      from { -moz-transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+      to { -moz-transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+      }
+  @-o-keyframes cssAnimation-rotation-inv {
+      to { -o-transform: rotate(360deg) scale(1) skew(0deg) translate(0px); }
+      from { -o-transform: rotate(1deg) scale(1) skew(0deg) translate(0px); }
+  }
+
+  // ---------------------------------------------------------------------------
+  @keyframes in-up {
+    from { transform: rotate(0deg) scale(1) skew(0deg) translateY(100%); }
+      to { transform: rotate(0deg) scale(1) skew(0deg) translateY(0%); }
+  }
+  @-o-keyframes in-up {
+      from { -o-transform: rotate(0deg) scale(1) skew(0deg) translateY(100%); }
+      to { -o-transform: rotate(0deg) scale(1) skew(0deg) translateY(0%); }
+  }
+
+  @-webkit-keyframes in-up {
+      from { -webkit-transform: rotate(0deg) scale(1) skew(0deg) translateY(100vh); }
+      to { -webkit-transform: rotate(0deg) scale(1) skew(0deg) translateY(0vh); }
+      }
+  @-moz-keyframes in-up {
+      from { -moz-transform: rotate(0deg) scale(1) skew(0deg) translateY(100%); }
+      to { -moz-transform: rotate(0deg) scale(1) skew(0deg) translateY(0%); }
+      }
+  @-o-keyframes in-up {
+      to { -o-transform: rotate(0deg) scale(1) skew(0deg) translateY(100%); }
+      from { -o-transform: rotate(0deg) scale(1) skew(0deg) translateY(0%); }
+  }
+
+  // ---------------------------------------------------------------------------
+  @keyframes out-up {
+    from { transform: rotate(0deg) scale(1) skew(0deg) translateY(100%); }
+      to { transform: rotate(0deg) scale(1) skew(0deg) translateY(0%); }
+  }
+  @-o-keyframes out-up {
+      from { -o-transform: rotate(0deg) scale(1) skew(0deg) translateY(100%); }
+      to { -o-transform: rotate(0deg) scale(1) skew(0deg) translateY(0%); }
+  }
+
+  @-webkit-keyframes out-up {
+      from { -webkit-transform: rotate(0deg) scale(1) skew(0deg) translateY(100%); }
+      to { -webkit-transform: rotate(0deg) scale(1) skew(0deg) translateY(0%); }
+      }
+  @-moz-keyframes out-up {
+      from { -moz-transform: rotate(10deg) scale(1) skew(0deg) translateY(100%); }
+      to { -moz-transform: rotate(10deg) scale(1) skew(0deg) translateY(0%); }
+      }
+  @-o-keyframes out-up {
+      to { -o-transform: rotate(0deg) scale(1) skew(0deg) translateY(100%); }
+      from { -o-transform: rotate(0deg) scale(1) skew(0deg) translateY(0%); }
+  }

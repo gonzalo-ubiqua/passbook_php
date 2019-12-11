@@ -1,0 +1,55 @@
+.error-window {
+  background-color: rgba(0,0,0,0.33);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 9999;
+
+  .window {
+    // Ventana de estándar
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 25vh auto;
+    max-height: 66vh;
+    max-width: 66vw;
+    width: 66vw;
+    header {
+      background-color: #123145;
+      background-color: #363e6d;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom: 1px solid rgba(0,0,0,1);
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+    .body {
+      max-height: 47vh;
+      overflow-x: auto;
+      overflow-x: overlay;
+      padding: 1em;
+      white-space: normal;
+      word-break: break-all;
+      &.waiting {  // Guardado por compatiblidiad pero el waiting debe ir a nivel wndow
+        text-align: center;
+      }
+    }
+    footer {
+      padding: 1em;
+      nav {
+        text-align: right;
+      }
+    }
+
+    // Ventana de waiting
+    &.waiting {
+      max-width: 33vw;
+      .body {
+        text-align: center;
+      }
+    }
+
+  }
+}
