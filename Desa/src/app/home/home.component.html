@@ -13,7 +13,7 @@
 
   <div class="window waiting" *ngSwitchCase='1'>
     <header>
-      <h2 i18n>Uploading file</h2>
+      <h2 i18n>Procesando CSV</h2>
     </header>
     <div class="body">
       <ul>
@@ -31,14 +31,18 @@
 
   <div class="window waiting" *ngSwitchCase='2'>
     <header>
-      <h2 i18n>Uploading file</h2>
+      <h2 i18n>Procesando CSV</h2>
     </header>
     <div class="body">
       <ul>
         <li *ngFor="let item_file of uploading_files">
-          <span i18n>Procesing file {{item_file.file_name}}: </span>
+          <p i18n>Procesando csv {{item_file.file_name}}: </p>
         </li>
       </ul>
+      <p i18n>
+        Este proceso puede tradar bastante tiempo, en función<br /> del número de mails que se desse enviar.<br />
+        Por favor, tenga paciente.
+      </p>
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="forever-rotation" style="color: rgba(0,0,0,0.66); fill: currentColor;">
         <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/>
       </svg>
@@ -49,16 +53,17 @@
 
   <div class="window" *ngSwitchCase='3'>
     <header>
-      <h2 i18n>Uploading file</h2>
+      <h2 i18n>Procesando CSV</h2>
     </header>
     <div class="body">
-      <h4 i18n>File {{upload_log.file_name}} successfully procesed</h4>
+      <h4 i18n>Fichero procesado. Estadísticas:</h4>
       <div class="stadistics">
-         <span i18n>Total deliveries:</span> {{upload_log.stadistics.total| number}}<br />
-         <span i18n>Total inserted:</span> {{upload_log.stadistics.inserted| number}}<br />
-         <span i18n>errors:</span> {{upload_log.stadistics.errors| number}}<br />
+         <span i18n>Total passboks:</span>&nbsp;<span>{{stadistics.total | number}}</span><br />
+         <span i18n>Total mails sended:</span>&nbsp;<span>{{stadistics.ok | number}}</span><br />
+         <span i18n>Errors generating passbooks:</span>&nbsp;<span>{{stadistics.errors_pb | number}}</span><br />
+         <span i18n>Errors sending mails:</span>&nbsp;<span>{{stadistics.errors_ml | number}}</span><br />
          <ul>
-           <li *ngFor="let l of upload_log.stadistics.log">{{l}}</li>
+           <li *ngFor="let l of stadistics.log">{{l}}</li>
          </ul>
       </div>
     </div>
@@ -71,10 +76,10 @@
 
   <div class="window" *ngSwitchCase='99'>
     <header>
-      <h2>Uploading file</h2>
+      <h2>Procesando CSV</h2>
     </header>
     <div class="body">
-      <p i18n>Error uploading file:</p>
+      <p i18n>Error Procesando CSV:</p>
       <p [innerHTML]="msg_error"></p>
     </div>
     <footer>

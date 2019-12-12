@@ -66,7 +66,8 @@ export abstract class FileReaderAbstractComponent /* implements OnInit, OnDestro
   public onDrop(event: any) {
 
     event.dataTransfer.dropEffect = 'copy';
-    this.onFileSelected(event.dataTransfer.files);
+    event.target.files = event.dataTransfer.files;
+    this.onFileSelected(event);
 
   }
   // ---------------------------------------------------------------------------

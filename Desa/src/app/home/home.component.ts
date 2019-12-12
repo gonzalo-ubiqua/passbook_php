@@ -16,6 +16,7 @@ export class HomeComponent extends FileReaderAbstractComponent implements OnInit
   public msg_error    = '';
   public upload_log   = null;
   public uploading_files: any[] = [];
+  public stadistics = null;
 
   private FileSendS: FileSendService = null
   private sb = {
@@ -44,8 +45,9 @@ export class HomeComponent extends FileReaderAbstractComponent implements OnInit
     this.FileSendS.onComplete.subscribe( (info: any) => {
       console.log("Filesend onComplete");
       console.info(info);
+      this.stadistics = JSON.parse(info.datos);
         // this.upload_log = log;
-        this.window_ind = 3;
+      this.window_ind = 3;
         // this.uploading_files = this.uploading_files.filter( (e:File) => e.name !== log.file_name);
     });
 
@@ -54,12 +56,6 @@ export class HomeComponent extends FileReaderAbstractComponent implements OnInit
       this.msg_error  = error;
       this.window_ind = 99;
     });
-    //
-    // this.sb.w = this.FileSendS.onRowWritten.subscribe( (log: any) => {
-    //   this.upload_log = log;
-    //   this.window_ind = 3;
-    //   this.uploading_files = this.uploading_files.filter( (e:File) => e.name !== log.file_name);
-    // });
 
   }
 

@@ -33,7 +33,7 @@ export class FileSendService extends RemoteCallService {
     const data = new FormData();
     data.append('file_name', file_name);
     data.append('content', content_to_send);
-    this.remotePostRequest('mailingSCV', data);
+    this.remotePostRequest('mailingCSV', data);
 
 
     // const callParams = this.getCallParams('SendData');

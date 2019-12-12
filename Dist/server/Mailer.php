@@ -2,6 +2,13 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\OAuth;
+use League\OAuth2\Client\Provider\Google;
+//SMTP needs accurate times, and the PHP time zone MUST be set
+//This should be done in your php.ini, but this is how to do it if you don't have access to that
+date_default_timezone_set('Europe/Andorra');
+
 
 class Mailer {
   // Funciona ok con "ISO-8859-15" y "UTF-8"
@@ -19,30 +26,29 @@ class Mailer {
 
     $this->mail = new PHPMailer(true);                       // Passing `true` enables exceptions
     $this->mail->CharSet = $this->codificacion;
-
+    // $this->mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $this->mail->isSMTP();                                      // Set mailer to use SMTP
 
     //$this->mail->SMTPDebug = 2;
     $this->mail->setLanguage('es');
 
-    $this->mail->Host			= $info_conexion['host'];
-    $this->mail->SMTPAuth	= true;                               // Enable SMTP authentication
-    $this->mail->Username	= $info_conexion['username'];
-    $this->mail->Password	= $info_conexion['password'];                // SMTP password
-    //$this->mail->SMTPAutoTLS= false;
-    //$this->mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    $this->mail->Host			  = $info_conexion['host'];
+    $this->mail->SMTPAuth	  = $info_conexion['auth'];                               // Enable SMTP authentication
+    $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $this->mail->Username	  = $info_conexion['username'];
+    $this->mail->Password	  = $info_conexion['password'];                // SMTP password
+
     if ( isset($info_conexion['port']) && $info_conexion['port'] !== null ) {
       $this->mail->Port	= $info_conexion['port'];
     }
 
-    $this->mail->SMTPOptions = array(
-        'ssl' => array(
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-            'allow_self_signed' => true
-        )
-    );
-    //@$this->mail->smtpConnect();
+    // $this->mail->SMTPOptions = array(
+    //     'ssl' => array(
+    //         'verify_peer' => false,
+    //         'verify_peer_name' => false,
+    //         'allow_self_signed' => true
+    //     )
+    // );
 
     $this->mail->addReplyTo( $info_conexion['emisor'] , $this->nombre_emisor);
 
@@ -84,7 +90,7 @@ class Mailer {
   }
 
   public function nuevoTo($a_quien_envia) {
-    print_r($a_quien_envia['mail']);
+    // print_r($a_quien_envia['mail']);
     $this->mail->addAddress($a_quien_envia['mail'], $a_quien_envia['nombre']);
   }
 
