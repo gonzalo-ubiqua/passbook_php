@@ -1,5 +1,5 @@
-Crear un jar con todas sus dependecias
+Crear un jar con todas sus dependencias
   mvn clean compile assembly:single
 
-Ejecitar la app (con parámetros 001 y pp)
+Ejecutar la app (con parámetros 001 y pp)
 java -cp target/passbook-1.0-jar-with-dependencies.jar me.compare.passbook.App 001 pp

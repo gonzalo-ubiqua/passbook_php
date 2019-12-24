@@ -3,8 +3,8 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\OAuth;
-use League\OAuth2\Client\Provider\Google;
+// use PHPMailer\PHPMailer\OAuth;
+// use League\OAuth2\Client\Provider\Google;
 //SMTP needs accurate times, and the PHP time zone MUST be set
 //This should be done in your php.ini, but this is how to do it if you don't have access to that
 date_default_timezone_set('Europe/Andorra');
@@ -34,7 +34,8 @@ class Mailer {
 
     $this->mail->Host			  = $info_conexion['host'];
     $this->mail->SMTPAuth	  = $info_conexion['auth'];                               // Enable SMTP authentication
-    $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    // $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    // $this->mail->SMTPSecure = 'SSL';
     $this->mail->Username	  = $info_conexion['username'];
     $this->mail->Password	  = $info_conexion['password'];                // SMTP password
 
@@ -42,13 +43,13 @@ class Mailer {
       $this->mail->Port	= $info_conexion['port'];
     }
 
-    // $this->mail->SMTPOptions = array(
-    //     'ssl' => array(
-    //         'verify_peer' => false,
-    //         'verify_peer_name' => false,
-    //         'allow_self_signed' => true
-    //     )
-    // );
+    $this->mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
 
     $this->mail->addReplyTo( $info_conexion['emisor'] , $this->nombre_emisor);
 
@@ -122,7 +123,7 @@ class Mailer {
   public function enviar() {
     try {
       return $this->mail->send();
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
       // print_r($this->mail->ErrorInfo);
       // print_r($e);
       throw new \Exception('Message could not be sent. Mailer Error: ' . $this->mail->ErrorInfo, 5000);

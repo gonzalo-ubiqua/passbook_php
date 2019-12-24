@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "056da5237441c613d808b9960c935867",
+    "content-hash": "0897934fb08c311b62fa62e4875526f6",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -419,6 +419,54 @@
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
             "time": "2019-12-10T11:17:38+00:00"
+        },
+        {
+            "name": "pkpass/pkpass",
+            "version": "v1.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tschoffelen/php-pkpass.git",
+                "reference": "4b7f94f8d0f3e077dbf883144860796fa4ebe763"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tschoffelen/php-pkpass/zipball/4b7f94f8d0f3e077dbf883144860796fa4ebe763",
+                "reference": "4b7f94f8d0f3e077dbf883144860796fa4ebe763",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zip": "*",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PKPass\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Schoffelen",
+                    "email": "thomas@scholica.com",
+                    "homepage": "http://thomasschoffelen.com/"
+                }
+            ],
+            "description": "PHP PKPass class for iOS Wallet",
+            "homepage": "https://github.com/tschoffelen/PHP-PKPass",
+            "keywords": [
+                "apple",
+                "ios",
+                "ipad",
+                "iphone",
+                "passbook",
+                "php",
+                "wallet"
+            ],
+            "time": "2019-09-11T03:49:53+00:00"
         },
         {
             "name": "psr/http-message",

@@ -428,6 +428,56 @@
         "description": "PHPMailer is a full-featured email creation and transfer class for PHP"
     },
     {
+        "name": "pkpass/pkpass",
+        "version": "v1.2.5",
+        "version_normalized": "1.2.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tschoffelen/php-pkpass.git",
+            "reference": "4b7f94f8d0f3e077dbf883144860796fa4ebe763"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tschoffelen/php-pkpass/zipball/4b7f94f8d0f3e077dbf883144860796fa4ebe763",
+            "reference": "4b7f94f8d0f3e077dbf883144860796fa4ebe763",
+            "shasum": ""
+        },
+        "require": {
+            "ext-zip": "*",
+            "php": ">=5.4"
+        },
+        "time": "2019-09-11T03:49:53+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PKPass\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Thomas Schoffelen",
+                "email": "thomas@scholica.com",
+                "homepage": "http://thomasschoffelen.com/"
+            }
+        ],
+        "description": "PHP PKPass class for iOS Wallet",
+        "homepage": "https://github.com/tschoffelen/PHP-PKPass",
+        "keywords": [
+            "apple",
+            "ios",
+            "ipad",
+            "iphone",
+            "passbook",
+            "php",
+            "wallet"
+        ]
+    },
+    {
         "name": "psr/http-message",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",

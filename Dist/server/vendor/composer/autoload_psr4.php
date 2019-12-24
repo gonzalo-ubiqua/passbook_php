@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'ubiqua\\pbCortijoFontanilla\\' => array($baseDir . '/'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'PKPass\\' => array($vendorDir . '/pkpass/pkpass/src'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'League\\OAuth2\\Client\\' => array($vendorDir . '/league/oauth2-client/src', $vendorDir . '/league/oauth2-google/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),

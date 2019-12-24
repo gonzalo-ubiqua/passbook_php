@@ -21,6 +21,7 @@ class ComposerStaticInitfbffe00ac594e6a0c6a8b3649f58cd1c
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+            'PKPass\\' => 7,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
         'L' => 
@@ -43,6 +44,10 @@ class ComposerStaticInitfbffe00ac594e6a0c6a8b3649f58cd1c
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'PKPass\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pkpass/pkpass/src',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (

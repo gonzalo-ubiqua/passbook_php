@@ -24,7 +24,7 @@ $tabla_cuentas = array (
 		'nombre_emisor'	=> "Gonzalo",
     'emisor' => 'gonzalo@petrasoft.es',
     'host' => 'www.petrasoft.es',
-    'port' => 465,
+    'port' => 25, // 465,
     'auth' => 'true',
     'username' => 'gonzalo@petrasoft.es',
     'password' => 'W?26myN4Sc(.',
@@ -42,6 +42,6 @@ $tabla_cuentas = array (
   )
 );
 // $mail->SMTPSecure = 'tls';
-$cuenta = 'petrasoft';
+$cuenta = 'ubiquadev';
 
 ?>

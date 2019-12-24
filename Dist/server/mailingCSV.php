@@ -75,6 +75,8 @@ class PassBookManager {
   //    input array
   // @return void
   private function generatePassBooks($input_array) {
+
+
     for ($row=0; $row<count($input_array); $row++) {
       if (empty($input_array[$row])) {
         continue;
@@ -82,6 +84,7 @@ class PassBookManager {
       $this->total++;
 
       try {
+        $pkpass = new PassbookCortijoFontanilla(__DIR__ . DIRECTORY_SEPARATOR . 'Templates/CortijoFontanilla.pass');
         $columns = \explode( COLUMNS_SEPARATOR, $input_array[$row]);
         // eliminar las comillas, ya sean dobles y simples
         $name = substr($columns[0], 1 , -1);
@@ -89,20 +92,13 @@ class PassBookManager {
 
         $sec = sprintf('%010u', ($row+1));
 
-
-        // echo "java -cp passbook-1.0-jar-with-dependencies.jar me.compare.passbook.App $sec '$name'" . PHP_EOL;
-        $output = '';
-        exec("java -cp passbook-1.0-jar-with-dependencies.jar me.compare.passbook.App $sec '$name' 2> /dev/null", $output);
-        // print_r($output);
-        $last_response = array_pop($output);
-        if ( $last_response !== 'Done!' ) {
-          array_push($this->log, 'Error procesandao passbook para el usuario ' . $name . " => $last_response");
-          $this->ret_data->log ( implode(PHP_EOL, $output) );
-          $this->errors_pb++;
-        }
+        $pkpass->create($sec, $name);
 
       } catch (Exception $e) {
 
+        array_push($this->log, 'Error procesandao passbook para el usuario ' . $name . " => $last_response");
+        $this->ret_data->log ( $output );
+        $this->ret_data->log ( $last_response );
         $this->errors_pb++;
 
       }
@@ -115,6 +111,10 @@ class PassBookManager {
   //    input array
   // @return void
   private function sendMails($input_array) {
+    require dirname(__FILE__) . "/mail.inc.php";
+    $info_conexion = $tabla_cuentas[$cuenta];
+    $this->ret_data->log ( "Enviando mail usando cuenta: " . $tabla_cuentas[$cuenta]['emisor'] );
+
 
     for ($row=0; $row<count($input_array); $row++) {
       if (empty($input_array[$row])) {
@@ -142,7 +142,7 @@ class PassBookManager {
         $this->mailer->textoHTML('<p>Tenemos el placer de comunicarle que Cortijo Fontanillas le envía este passbook para su mayor disfrute y comodidad');
 
         $sec = sprintf('%010u', ($row+1));
-        $date = date('ymd');
+        $date = date('Ymd');
         $passBook_file_name = realpath('.') . DIRECTORY_SEPARATOR .
             'pkpass_generated/CortijoFontanilla.pass' . DIRECTORY_SEPARATOR .
             "$sec-$date.pkpass";
@@ -155,16 +155,19 @@ class PassBookManager {
 
         $this->mailer->adjuntarDoc( array(
           'fichero' => $passBook_file_name,
-          'nombre'  => str_replace(' ', '_', $name) . '.passbook'
+          'nombre'  => str_replace(' ', '_', $name) . '.pkpass'
         ));
-        // $this->mailer->enviar();
 
-        unlink( $passBook_file_name );
+        // echo "$row of " . count($input_array);
+        $this->mailer->enviar();
+
+        // unlink( $passBook_file_name );
         $this->ok++;
 
-      } catch (Exception $e) {
+      } catch (\Exception $e) {
 
         $this->errors_ml++;
+        $this->ret_data->log ( $e->getMessage() );
 
       }
 

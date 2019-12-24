@@ -9,12 +9,12 @@ import java.util.Date;
 import de.brendamour.jpasskit.PKPass;
 // import PassBook;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
         try {
-        	
+
 	        PassBook NewPB = new PassBook();
 	        // 	Datos genéricos de passbook
 	        // Sólo hay que llamar a este método si los templetates se cambian
@@ -26,9 +26,9 @@ public class App
 	        NewPB.setClientSignDomain("pass.cortijo.fontanilla.me.123Compare");
 	        NewPB.setPassDescription("Cortijo Fontanilla");
 	        NewPB.setLogoText("");
-	        
 
-	        
+
+
 	        // Datos específicos de passbook
 //	        String book_id = "0000001";
 //	        NewPB.setBarcodeData(book_id);
@@ -43,43 +43,48 @@ public class App
             NewPB.addSecondaryField("Member #", book_id, "l");
 //            NewPB.addPrimaryField("Import", 1500, "EUR", "r");
 
-            
-            
-            try {
-                System.out.println( "passbook => firmar y generar" );
-    			PKPass generatedPB = NewPB.finish(book_id + "-" + App.getDateToday());
-    		} catch (Exception e) {
-    			throw new Exception("Error generando el passbok: " + e.getMessage());
-    		}
-            
-        } catch (Exception e) {
 
-        	e.printStackTrace();
-		
-        }
-        
+
+        try {
+          System.out.println( "passbook => firmar y generar" );
+    			PKPass generatedPB = NewPB.finish(book_id + "-" + App.getDateToday());
+          System.out.println("Done!");
+
+    		} catch (Exception e) {
+          String msg = "Error firmado y generando el passbok: " + e.getMessage();
+          System.out.println(msg);
+    			throw new Exception(msg);
+    		}
+
+      } catch (Exception e) {
+        String msg = "Error generando el passbok: " + e.getMessage();
+        System.out.println(msg);
+      	e.printStackTrace();
+
+      }
+
     }
-    
+
     public static String getDateToday() {
         SimpleDateFormat dnt = new SimpleDateFormat("yyMMdd");
         Date date			 = new Date();
-        
+
         return dnt.format(date);
 
-    } 
-    
+    }
+
     public static void prueba()  {
 
     	URL url = App.class.getResource("./clients");
     	File folder = new File(url.getPath());
     	System.out.println(folder.getAbsolutePath());
     	listFilesForFolder(folder);
-    	
+
     }
-    
+
     public static void listFilesForFolder(final File folder) {
     	System.out.println("Tratando la carpeta " + folder.getName());
-    	
+
         for (final File fileEntry : folder.listFiles()) {
             if (fileEntry.isDirectory()) {
                 listFilesForFolder(fileEntry);

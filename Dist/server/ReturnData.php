@@ -20,11 +20,23 @@ class ReturnData {
   // ---------------------------------------------------------------------------
   public function put() {
     echo json_encode($this);
+    // foreach (getallheaders() as $name => $value) {
+    //   echo "\n$name: $value<br />\n\n";
+    // }
+
   }
 
   // ---------------------------------------------------------------------------
   public function log($text) {
-    array_push($this->logs, json_encode($text));
+    if ( is_array($text) ) {
+      $this->logs = array_merge($this->logs, $text);
+    } else {
+      if ( is_string($text) ) {
+        array_push($this->logs, $text);
+      } else {
+        array_push($this->logs, json_encode($text));
+      }
+    }
   }
 
 }

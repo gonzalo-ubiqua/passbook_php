@@ -45,6 +45,7 @@ export class AppConfigService {
     },
     default: {
       url : 'server',
+      // url : 'http://ubiqua.petrasoft.es',
       ws  : '/php/ajax/psws.php',
     }
   }

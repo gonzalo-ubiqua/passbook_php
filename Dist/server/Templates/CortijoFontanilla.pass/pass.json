@@ -1,0 +1,25 @@
+{
+  "formatVersion":1,
+  "serialNumber":"0000000001",
+  "passTypeIdentifier":"pass.cortijo.fontanilla.me.123Compare",
+  "description":"Cortijo Fontanilla",
+  "teamIdentifier":"SKYJ3N6G25",
+  "organizationName":"Ubiqua Instant Response S.L.",
+  "logoText":"",
+  "foregroundColor":"rgb(255,255,255)",
+  "backgroundColor":"rgb(54,62,109)",
+  "labelColor":"rgb(255,216,0)",
+  "barcodes":[
+    {
+      "format":"PKBarcodeFormatQR",
+      "message":"0000000001",
+      "messageEncoding":"UTF-8"
+    }
+  ],
+  "generic":{
+    "primaryFields":[],
+    "secondaryFields":[],
+    "backFields":[]
+  },
+  "sharingProhibited":false
+}

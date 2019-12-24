@@ -48,7 +48,8 @@ export class HomeComponent extends FileReaderAbstractComponent implements OnInit
       this.stadistics = JSON.parse(info.datos);
         // this.upload_log = log;
       this.window_ind = 3;
-        // this.uploading_files = this.uploading_files.filter( (e:File) => e.name !== log.file_name);
+      // this.uploading_files = this.uploading_files.filter( (e:File) => e.name !== log.file_name);
+      this.uploading_files = [];    // Solo se permite subi un fochero cada vez así que es válido inicilizar this.uploading_files
     });
 
     this.sb.e = this.FileSendS.onError.subscribe( (error: string) => {
