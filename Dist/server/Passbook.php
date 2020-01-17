@@ -22,7 +22,7 @@ abstract class Passbook {
   private $data              = array();
   private static $serial     = 1;
 
-  function __construct(string $template_folder) {
+  function __construct( /* string */ $template_folder) {
 
     $this->PKClass = new PKPass($this->client_p12_cert, $this->client_p12_cert_pwd);
     $this->initDataStructure();
@@ -121,7 +121,7 @@ abstract class Passbook {
 
   // ---------------------------------------------------------------------------
   // Add al png in the folder to current passbook
-  protected function addTemplate(string $folder_name) {
+  protected function addTemplate( /* string */ $folder_name) {
 
     if ( \file_exists($folder_name) || \is_dir($folder_name) ) {
 
