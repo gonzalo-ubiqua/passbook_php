@@ -14,7 +14,7 @@ define('LF', "\n");          // Line Feed: Unix
 define('CRLF', "\r\n");      // Carriage Return and Line Feed: Windows
 define('BR', '<br />' . LF); // HTML Break
 
-define('COLUMNS_SEPARATOR', ';');
+define('COLUMNS_SEPARATOR', ',');
 
 // =============================================================================
 // =============================================================================
